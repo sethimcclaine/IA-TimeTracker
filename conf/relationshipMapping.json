@@ -1,0 +1,622 @@
+{
+	"_description" : "Defines relationships for our **tests**, this is not used outside of tests.",
+    "tables": [
+        {
+            "tableName": "AddressHistory",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+        "tableName": "AgencyReferralHistory",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "CaseAgency",
+                    "fieldName": "referralID"
+                },
+                {
+                    "foreignTableName": "AgencyReferralStatus",
+                    "fieldName": "statusID"
+                }
+            ]
+        },
+        {
+            "tableName": "Appointment",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "Assessment",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "BirthMother",
+                    "fieldName": "birthMotherID"
+                }
+            ]
+        },
+        {
+            "tableName": "Baby",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "Hospital",
+                    "fieldName": "dischargeHospitalID"
+                }
+            ]
+        },
+        {
+            "tableName": "CanAbuse",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "CanIncident",
+                    "fieldName": "incidentID"
+                },
+                {
+                    "foreignTableName": "CanAbuseType",
+                    "fieldName": "abuseTypeID"
+                },
+                {
+                    "foreignTableName": "CanSeverity",
+                    "fieldName": "severityID"
+                }
+            ]
+        },
+        {
+            "tableName": "CanAbuser",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "CanIncident",
+                    "fieldName": "incidentID"
+                },
+                {
+                    "foreignTableName": "CanRelationshipType",
+                    "fieldName": "relationshipID"
+                },
+                {
+                    "foreignTableName": "LevelOfEducation",
+                    "fieldName": "educationLevelID"
+                }
+            ]
+        },
+        {
+            "tableName": "CanIncident",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "CanReporter",
+                    "fieldName": "reporterID"
+                }
+            ]
+        },
+        {
+            "tableName": "CarePlan",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },                
+                {
+                    "foreignTableName": "CarePlanStatusType",
+                    "fieldName": "statusID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseAgency",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseAssignment",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseCareGiver",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },                
+                {
+                    "foreignTableName": "RelationshipType",
+                    "fieldName": "relationshipID"
+                },
+                {
+                    "foreignTableName": "LevelOfEducation",
+                    "fieldName": "educationLevelID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseEvent",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "EventOfInterest",
+                    "fieldName": "eventID"
+                }
+            
+            ]
+        },
+        {
+            "tableName": "CaseNote",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseObjective",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "CaseObjectiveType",
+                    "fieldName": "objectiveTypeID"
+                }
+            ]
+        },
+        {
+            "tableName": "CasePriorAgency",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseProgram",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseReferrer",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseRiskFactor",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "CaseSynchronization",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+            "tableName": "DevelopmentalSkill",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "DevelopmentalSkillType",
+                    "fieldName": "skillTypeID"
+                }
+            ]
+        },
+        {
+            "tableName": "DoctorSpecialty",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "MedicalSpecialty",
+                    "fieldName": "specialtyID"
+                }
+            ]
+        },
+        {
+            "tableName": "DuplicateReferralHistory",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "DuplicateReferralType",
+                    "fieldName": "referralTypeID"
+                }
+
+            ]
+        },
+        {
+            "tableName": "Employee",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "EmployeeStatus",
+                    "fieldName": "statusID"
+                },
+                {
+                    "foreignTableName": "Employee",
+                    "fieldName": "supervisorID"
+                }
+            ]
+        },
+        {
+            "tableName": "EvalEvaluation",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+        "tableName": "EvalResponse",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "EvalEvaluation",
+                    "fieldName": "evalID"
+                }
+            ]
+        },
+        {
+        "tableName": "FamilySupportPlan",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+        "tableName": "FspStrategy",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "FamilySupportPlan",
+                    "fieldName": "fspID"
+                },
+                {
+                    "foreignTableName": "FspAreaOfEmphasis",
+                    "fieldName": "areaOfEmphasisID"
+                }
+            ]
+        },
+        {
+        "tableName": "InstInstrument",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "InstType",
+                    "fieldName": "typeID"
+                },
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+        "tableName": "InstQuestion",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "InstType",
+                    "fieldName": "typeID"
+                },
+                {
+                    "foreignTableName": "InstQuestionGroup",
+                    "fieldName": "questionGroupID"
+                }
+            ]
+        },
+        {
+        "tableName": "InstQuestionGroup",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "InstType",
+                    "fieldName": "typeID"
+                }
+            ]
+        },
+        {
+        "tableName": "InstResponse",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "InstInstrument",
+                    "fieldName": "instrumentID"
+                },
+                {
+                    "foreignTableName": "InstQuestion",
+                    "fieldName": "questionID"
+                }
+
+            ]
+        },
+        {
+        "tableName": "ItemsGiven",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "ItemsToGive",
+                    "fieldName": "itemID"
+                }
+            ]
+        },
+        {
+        "tableName": "MedicalHistory",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "MedicalHistoryCondition",
+                    "fieldName": "conditionID"
+                }
+            ]
+        },
+        {
+        "tableName": "MissingImmunization",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "MissingImmunizationReason",
+                    "fieldName": "reasonID"
+                }
+
+            ]
+        },
+        {
+        "tableName": "MvAction",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "MvActionType",
+                    "fieldName": "actionTypeID"
+                },
+                {
+                    "foreignTableName": "MissingImmunizationReason",
+                    "fieldName": "reasonID"
+                }
+
+            ]
+        },
+        {
+        "tableName": "MvReason",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "MvReasonType",
+                    "fieldName": "reasonTypeID"
+                },
+                {
+                    "foreignTableName": "MissingImmunizationReason",
+                    "fieldName": "reasonID"
+                }
+
+            ]
+        },
+
+        {
+        "tableName": "NfnfCase",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "EvalGroup",
+                    "fieldName": "evaluationGroupID"
+                },
+                {
+                    "foreignTableName": "ChildProtectServiceType",
+                    "fieldName": "childProtectServiceID"
+                },
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "displayID"
+                }
+            ]
+        },
+        {
+        "tableName": "Nurse",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "RnStatus",
+                    "fieldName": "statusID"
+                }
+            ]
+        },
+
+        {
+        "tableName": "PaymentAuthorizationLine",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "PaymentAuthorization",
+                    "fieldName": "authorizationID"
+                },
+                {
+                    "foreignTableName": "Icd9Code",
+                    "fieldName": "icd9Code1ID"
+                },
+                {
+                    "foreignTableName": "Icd9Code",
+                    "fieldName": "icd9Code2ID"
+                }
+            ]
+        },
+
+        {
+        "tableName": "PaymentAuthorization",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+        "tableName": "PeerReview",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "Employee",
+                    "fieldName": "reviewerEmployeeID"
+                }
+
+            ]
+        },
+
+        {
+        "tableName": "Person",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "Doctor",
+                    "fieldName": "primaryPhysicianID"
+                }
+            ]
+        },
+
+        {
+        "tableName": "PossibleDuplicates",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "possibleDuplicateCaseID"
+                }
+
+            ]
+        },
+        {
+        "tableName": "Pregnancy",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "PregnancyOutcome",
+                    "fieldName": "outcomeID"
+                },
+                {
+                    "foreignTableName": "Hospital",
+                    "fieldName": "motherDischargeHospitalID"
+                },
+                {
+                    "foreignTableName": "Person",
+                    "fieldName": "fatherID"
+                }
+            ]
+        },
+        {
+        "tableName": "SecGroupAccess",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "secGroup",
+                    "fieldName": "groupID"
+                },
+                {
+                    "foreignTableName": "SecRestrictedFeature",
+                    "fieldName": "restrictedFeatureID"
+                }
+
+            ]
+        },
+        {
+        "tableName": "SecUserGroup",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "SecGroup",
+                    "fieldName": "groupID"
+                },
+                {
+                    "foreignTableName": "SecUser",
+                    "fieldName": "userID"
+                }
+
+            ]
+        },
+
+        {
+        "tableName": "Service",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "ServiceSubType",
+                    "fieldName": "subTypeID"
+                },
+                {
+                    "foreignTableName": "Employee",
+                    "fieldName": "notesReviewedByID"
+                },
+                {
+                    "foreignTableName": "Icd9Code",
+                    "fieldName": "icd9Code1ID"
+                },
+                {
+                    "foreignTableName": "Icd9Code",
+                    "fieldName": "icd9Code2ID"
+                }
+            ]
+        },
+
+        {
+        "tableName": "Termination",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        },
+        {
+        "tableName": "TimeBlock",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                },
+                {
+                    "foreignTableName": "Employee",
+                    "fieldName": "reviewedByID"
+                }
+            ]
+        },
+        {
+        "tableName": "VisitorCaseAssignment",
+            "foreignKeys": [
+                {
+                    "foreignTableName": "NfnfCase",
+                    "fieldName": "caseID"
+                }
+            ]
+        }
+    ]
+}
+

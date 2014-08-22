@@ -1,0 +1,52 @@
+<VirtualHost *:80>
+	
+	ServerName cm.nfnf.org
+	ServerAdmin webmaster@localhost
+	
+	# Redirects, serve up content securely
+	RewriteEngine On
+	
+	# Everything else just goes to the https
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R]
+	
+	# Logging
+	LogLevel warn
+	ErrorLog /sites/nfnf/logs/error.log
+	CustomLog /sites/nfnf/logs/access.log combined
+
+	ExpiresByType text/cache-manifest "access plus 0 seconds"
+
+</VirtualHost>
+
+<VirtualHost *:443>
+	
+	ServerName cm.nfnf.org
+	ServerAdmin webmaster@localhost
+	
+	<IfModule mod_ssl.c>
+		SSLEngine on
+		SSLCertificateFile "/etc/apache2/ssl/nfnf.org.crt"
+		SSLCertificateKeyFile "/etc/apache2/ssl/nfnf.key"
+		SSLCertificateChainFile "/etc/apache2/ssl/gd_bundle.crt"
+		SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+	</IfModule>
+	
+	DocumentRoot /sites/nfnf/prodnfnf/active/web/webroot
+	<Directory /sites/nfnf/prodnfnf/active/web/webroot>
+		Options FollowSymLinks
+		AllowOverride All 
+	</Directory>
+	
+	Include /sites/nfnf/prodnfnf/active/web/conf/httpd.virtualhost.conf
+	
+	LogLevel warn
+	SetEnvIf ^ia_.* "^.+$" IsAPI
+	LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" {\"request_time\": \"%D\",\"ia_db_uuid\": \"%{ia_db_uuid}i\",\"ia_db_version\":\"%{ia_db_version}i\",\"ia_api_version\":\"%{ia_api_version}i\",\"ia_auth_type\":\"%{ia_auth_type}i\",\"ia_auth_user\":\"%{ia_auth_user}i\",\"ia_auth_user_name\":\"%{ia_auth_user_name}i\",\"ia_device_id\":\"%{ia_device_id}i\",\"ia_device_architecture\":\"%{ia_device_architecture}i\",\"ia_device_locale\":\"%{ia_device_locale}i\",\"ia_device_manufacturer\":\"%{ia_device_manufacturer}i\",\"ia_device_model\":\"%{ia_device_model}i\",\"ia_os_name\":\"%{ia_os_name}i\",\"ia_os_architecture\":\"%{ia_os_architecture}i\",\"ia_os_version\":\"%{ia_os_version}i\",\"ia_app_version\":\"%{ia_app_version}i\",\"ia_app_db_version\":\"%{ia_app_db_version}i\"}" WithJSON
+
+	ErrorLog /sites/nfnf/logs/error.log
+	CustomLog /sites/nfnf/logs/access.log combined env=!IsAPI
+	CustomLog /sites/nfnf/logs/access.log WithJSON env=IsAPI
+
+	ExpiresByType text/cache-manifest "access plus 0 seconds"
+
+</VirtualHost>
